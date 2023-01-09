@@ -14,6 +14,14 @@ def main():
 	bg = pygame.Surface((WIDTH, HEIGHT))
 	bg.fill((20,20,20))
 
+	def draw_text(text, size, x, y, color):
+		font = pygame.font.Font(None, size)
+		text_surface = font.render(text, True, color)
+		text_rect = text_surface.get_rect()
+		text_rect.left = x
+		text_rect.top = y
+		screen.blit(text_surface, text_rect)
+
 	# Create the stock alert objects.
 	stocks = {
 		"GOOGL":["Alphabet Ltd.", 88.00],
@@ -33,16 +41,17 @@ def main():
 				exit()
 
 		# DISPLAY OBJECTS
-		screen.blit(bg, (0, 0))
+		screen.blit(bg, (0,0))
 		y = 40
 		for alert in alerts:
 			if alert.status:
-				color = (0, 255, 0)
+				color = (0,255,0)
 			else:
-				color = (100, 100, 100)
+				color = (100,100,100)
 			pygame.draw.circle(screen, color, (50, y), 10)
+			string = f"{alert.name}  Alert Price: {alert.alert_price}."
+			draw_text(string, 20, 70, y-5, (255,255,255))
 			y += 35
-
 
 		# UPDATE OBJECTS
 		if counter >= 300:
