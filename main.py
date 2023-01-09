@@ -25,10 +25,7 @@ def main():
 	for key in stocks.keys():
 		alerts.append(StockAlert(key, stocks[key][0], stocks[key][1]))
 
-	for alert in alerts:
-		print(alert.name)
-	exit()
-
+	counter = 0
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -37,9 +34,23 @@ def main():
 
 		# DISPLAY OBJECTS
 		screen.blit(bg, (0, 0))
+		y = 40
+		for alert in alerts:
+			if alert.status:
+				color = (0, 255, 0)
+			else:
+				color = (100, 100, 100)
+			pygame.draw.circle(screen, color, (50, y), 10)
+			y += 35
 
 
 		# UPDATE OBJECTS
+		if counter >= 300:
+			for alert in alerts:
+				alert.update()
+			counter = 0
+		else:
+			counter += 1
 
 		pygame.display.update()
 		clock.tick(1)
