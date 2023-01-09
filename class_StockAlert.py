@@ -8,3 +8,11 @@ class StockAlert:
 		self.name = name
 		self.alert_price = alert_price
 		self.status = False
+
+	def update(self):
+		ticker = yf.Ticker(self.symbol).info
+		current_price = ticker["currentPrice"]
+		if current_price <= self.alert_price:
+			self.status = True
+		else:
+			self.status = False
