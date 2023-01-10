@@ -1,5 +1,7 @@
 # A program to generate alerts when stocks trade at set prices.
 
+# Video Walkthrough Link: https://www.youtube.com/watch?v=_lWvwTvJnNU
+
 import pygame
 from sys import exit
 from class_StockAlert import StockAlert
