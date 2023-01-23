@@ -26,7 +26,7 @@ def main():
 
 	# Create the stock alert objects.
 	stocks = {
-		"GOOGL":["Alphabet Ltd.", 88.00],
+		"GOOGL":["Alphabet Ltd.", 100.00],
 		"AAPL":["Apple Inc.", 125.00],
 		"TSLA":["Tesla Inc.", 100.00],
 		"MSFT":["Microsoft Corp.", 200.00]
