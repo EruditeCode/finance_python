@@ -1,5 +1,8 @@
 # Support class for finance programs.
 
+# Email function setup has a walkthrough video.
+# Video Walkthrough Link: ###
+
 import yfinance as yf
 import smtplib, ssl
 from email.message import EmailMessage
